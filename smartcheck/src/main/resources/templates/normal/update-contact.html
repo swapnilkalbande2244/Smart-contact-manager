@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user_dashboard</title>
+</head>
+<body>
+    <section>
+        <div class="card mr-4">
+            <div class="card-body">
+                <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+                    <p th:text="${session.message.content}"></p>
+                    <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                </div>
+                <h1 class="text-center">Update Contact</h1>
+                <div class="container-fluid mt-1">
+
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
+                            <form action="#" th:object="${contact}" enctype="multipart/form-data" method="post"
+                                th:action="@{/user/process-updatedcontact}" class="mt-2">
+                                <input type="hidden" th:value="${contact.cid}" name="cid">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text mr-3">
+                                            <i class="fa fa-plus"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input th:value="${contact.Name}" type="text" id="firstname" name="Name" class="form-control"
+                                        placeholder="Enter Name">
+
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text mr-3">
+                                            <i class="fas fa-user-alt"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input th:value="${contact.nickName}" type="text" id="firstname" name="nickName" class="form-control"
+                                        placeholder="Enter NickName">
+
+
+
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text mr-3">
+                                            <i class="fa fa-user"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input th:value="${contact.Name}" type="email" id="firstname" name="Emailids" class="form-control"
+                                        placeholder="Enter Email">
+
+
+
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text mr-3">
+                                            <i class="fa fa-user"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input th:value="${contact.Image}" type="text" id="firstname" name="Image" class="form-control"
+                                        placeholder="Upload  Image">
+
+
+
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text mr-3">
+                                            <i class="fa fa-briefcase"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input th:value="${contact.Description}" type="text" id="firstname" name="Description" class="form-control"
+                                        placeholder="Enter Description">
+
+
+
+                                </div>
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text mr-3">
+                                            <i class="fas fa-user-alt"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input th:value="${contact.Phone}" type="text" id="firstname" name="Phone" class="form-control"
+                                        placeholder="Enter Phone Number">
+
+                                </div>
+
+                                <div class="container text-center">
+                                    <button class="btn btn-outline-primary">Save Contact</button>
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
